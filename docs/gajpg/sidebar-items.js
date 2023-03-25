@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":[["generate_otp","generate otp from image_file_name"],["main","entry point into the bin-executable"],["print_help","print help"]]};

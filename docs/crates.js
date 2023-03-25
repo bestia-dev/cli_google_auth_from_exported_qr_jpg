@@ -1,0 +1,1 @@
+window.ALL_CRATES = ["cli_google_auth_from_exported_qr_jpg","gajpg"];

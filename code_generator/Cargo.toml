@@ -1,0 +1,22 @@
+[package]
+name = "code_generator"
+version = "0.0.1"
+description = "code generator for proto definitions"
+authors = ["bestia.dev"]
+homepage = "https://bestia.dev"
+edition = "2021"
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/bestia-dev/cli_google_auth_from_exported_qr_jpg"
+categories = ["rust-patterns"]
+keywords = ["Rust cli and library project"]
+publish = false
+
+[dependencies]
+log = "0.4"
+pretty_env_logger="0.4.0"
+thiserror = "1.0.30"
+anyhow="1.0.56"
+bytes = "1.4.0"
+prost = "0.11.8"
+prost-build = { version = "0.11.8" }

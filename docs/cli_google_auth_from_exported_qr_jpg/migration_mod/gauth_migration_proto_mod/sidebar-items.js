@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["migration_payload","Nested message and enum types in `MigrationPayload`."]],"struct":[["MigrationPayload",""]]};
