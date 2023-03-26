@@ -1,4 +1,4 @@
-name: cargo-fmt-build-test
+name: fmt-build-test
 
 on:
   push:
@@ -16,9 +16,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Fmt
+    - name: fmt
       run: cargo fmt -- --check
-    - name: Build
+    - name: build
       run: cargo build
     - name: test
       run: cargo test
