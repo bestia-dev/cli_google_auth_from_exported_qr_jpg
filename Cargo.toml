@@ -16,10 +16,9 @@ include = [
     "Cargo.toml",
     "LICENSE",
     "README.md",
-    "src/*",
-]
-exclude = [
-    "src/bin/*",
+    "src/lib.rs",
+    "src/migration_mod.rs",
+    "src/migration_mod/gauth_migration_proto_mod.rs",
 ]
 
 [dependencies]
