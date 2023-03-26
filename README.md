@@ -5,7 +5,7 @@
 [//]: # (auto_cargo_toml_to_md start)
 
 **CLI generates 2FA OTP codes from exported QR jpg images from google authenticator**  
-***version: 1.0.69 date: 2023-03-26 author: [bestia.dev](https://bestia.dev) repository: [Github](https://github.com/bestia-dev/cli_google_auth_from_exported_qr_jpg)***  
+***version: 1.0.70 date: 2023-03-26 author: [bestia.dev](https://bestia.dev) repository: [Github](https://github.com/bestia-dev/cli_google_auth_from_exported_qr_jpg)***  
 
 [//]: # (auto_cargo_toml_to_md end)
 
@@ -18,11 +18,11 @@
 
 [//]: # (auto_lines_of_code end)
 
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/bestia-dev/cli_google_auth_from_exported_qr_jpg/blob/main/LICENSE) [![Rust](https://github.com/bestia-dev/cli_google_auth_from_exported_qr_jpg/workflows/RustAction/badge.svg)](https://github.com/bestia-dev/cli_google_auth_from_exported_qr_jpg/)
+[![crates.io](https://img.shields.io/crates/v/cli_google_auth_from_exported_qr_jpg.svg)](https://crates.io/crates/cli_google_auth_from_exported_qr_jpg) [![Documentation](https://docs.rs/cli_google_auth_from_exported_qr_jpg/badge.svg)](https://docs.rs/cli_google_auth_from_exported_qr_jpg/) [![crev reviews](https://web.crev.dev/rust-reviews/badge/crev_count/cli_google_auth_from_exported_qr_jpg.svg)](https://web.crev.dev/rust-reviews/crate/cli_google_auth_from_exported_qr_jpg/) [![Lib.rs](https://img.shields.io/badge/Lib.rs-rust-orange.svg)](https://lib.rs/crates/cli_google_auth_from_exported_qr_jpg/) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/bestia-dev/cli_google_auth_from_exported_qr_jpg/blob/master/LICENSE) [![Rust](https://github.com/bestia-dev/cli_google_auth_from_exported_qr_jpg/workflows/RustAction/badge.svg)](https://github.com/bestia-dev/cli_google_auth_from_exported_qr_jpg/)  
 
 Hashtags: #rust #rustlang #tutorial  
-My projects on Github are more like a tutorial than a finished product: [bestia-dev tutorials](https://github.com/bestia-dev/tutorials_rust_wasm).
-Generated documentation: <https://bestia-dev.github.io/cli_google_auth_from_exported_qr_jpg/>  
+My projects on Github are more like a tutorial than a finished product: [bestia-dev tutorials](https://github.com/bestia-dev/tutorials_rust_wasm).  
+Generated documentation on github: <https://bestia-dev.github.io/cli_google_auth_from_exported_qr_jpg/>  
 
 ## Motivation
 
