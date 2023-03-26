@@ -54,7 +54,7 @@ pub fn get_qr_text_from_jpg(image_file_name: &str) -> Result<String, crate::Libr
     Ok(qr_text)
 }
 
-/// get qr text from jpg
+/// generate otp token from qr text
 pub fn generate_otp_token_from_qr_text(qr_text: &str) -> Result<String, crate::LibraryError> {
     log::info!("start generate_otp_token_from_qr_text({})", qr_text);
     // extract seed secret from otpauth_migration format
@@ -73,20 +73,19 @@ pub fn generate_otp_token_from_qr_text(qr_text: &str) -> Result<String, crate::L
 
     // println!( "{0}\n{1}\n{2}", account.name, account.secret, account.issuer );
     let secret = account.secret.clone();
-
+    // totp_rs::SecretParseError does not implement Display,
+    // therefore I cannot use #[thiserror::error(transparent)]
+    // TODO: 2023-03-26 wrote Issue to totp_rs to add traits Error and Display to SecretParseError
+    let secret_bytes = totp_rs::Secret::Encoded(secret)
+        .to_bytes()
+        .expect("totp-rs::SecretParseError");
     // generate otp token
     // paypal and porkbun have secrets smaller then 128bit !?!
     // This is despite the standard says explicitly that 128 bit is minimal.
     // The standard new() constructor asserts the minimal size of the secret
     // and therefor fails for paypal and porkbun.
     // Because of that I must use the non-standard function new_unchecked()
-    let totp = totp_rs::TOTP::new_unchecked(
-        totp_rs::Algorithm::SHA1,
-        6,
-        1,
-        30,
-        totp_rs::Secret::Encoded(secret).to_bytes().unwrap(),
-    );
+    let totp = totp_rs::TOTP::new_unchecked(totp_rs::Algorithm::SHA1, 6, 1, 30, secret_bytes);
     let token = totp.generate_current()?;
 
     // return
@@ -95,6 +94,7 @@ pub fn generate_otp_token_from_qr_text(qr_text: &str) -> Result<String, crate::L
 
 /// Convert a Google Authenticator migration QR code string to a list of accounts
 fn get_data_from_migration(uri_string: &str) -> Result<Vec<Account>, LibraryError> {
+    // otpauth-migration://offline?data=CioKFbdJDe%2FfCgnqX45r0bqfTI7VtZqa%2FBILdGVzdGVyOnRlc3QgASgBMAIQARgBIAAo0tfy2Qc%3D
     let encoded_data = extract_data_from_uri(uri_string)?;
 
     use base64::Engine;
@@ -116,6 +116,7 @@ fn get_data_from_migration(uri_string: &str) -> Result<Vec<Account>, LibraryErro
     return Ok(payloads);
 }
 
+/// extract data from uri
 fn extract_data_from_uri(raw: &str) -> Result<String, LibraryError> {
     let mut split = raw.split("data=");
     split.next();

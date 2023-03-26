@@ -127,6 +127,7 @@
 <a href="#127" id="127">127</a>
 <a href="#128" id="128">128</a>
 <a href="#129" id="129">129</a>
+<a href="#130" id="130">130</a>
 </pre><pre class="rust"><code><span class="comment">// cli_google_auth_from_exported_qr_jpg/src/migration_mod.rs
 
 // functions copied from https://github.com/Levminer/authme/tree/dev/core/crates/google_authenticator_converter
@@ -183,7 +184,7 @@
     </span><span class="prelude-val">Ok</span>(qr_text)
 }
 
-<span class="doccomment">/// get qr text from jpg
+<span class="doccomment">/// generate otp token from qr text
 </span><span class="kw">pub fn </span>generate_otp_token_from_qr_text(qr_text: <span class="kw-2">&amp;</span>str) -&gt; <span class="prelude-ty">Result</span>&lt;String, <span class="kw">crate</span>::LibraryError&gt; {
     <span class="macro">log::info!</span>(<span class="string">&quot;start generate_otp_token_from_qr_text({})&quot;</span>, qr_text);
     <span class="comment">// extract seed secret from otpauth_migration format
@@ -202,20 +203,19 @@
 
     <span class="comment">// println!( &quot;{0}\n{1}\n{2}&quot;, account.name, account.secret, account.issuer );
     </span><span class="kw">let </span>secret = account.secret.clone();
-
+    <span class="comment">// totp_rs::SecretParseError does not implement Display,
+    // therefore I cannot use #[thiserror::error(transparent)]
+    // TODO: 2023-03-26 wrote Issue to totp_rs to add traits Error and Display to SecretParseError
+    </span><span class="kw">let </span>secret_bytes = totp_rs::Secret::Encoded(secret)
+        .to_bytes()
+        .expect(<span class="string">&quot;totp-rs::SecretParseError&quot;</span>);
     <span class="comment">// generate otp token
     // paypal and porkbun have secrets smaller then 128bit !?!
     // This is despite the standard says explicitly that 128 bit is minimal.
     // The standard new() constructor asserts the minimal size of the secret
     // and therefor fails for paypal and porkbun.
     // Because of that I must use the non-standard function new_unchecked()
-    </span><span class="kw">let </span>totp = totp_rs::TOTP::new_unchecked(
-        totp_rs::Algorithm::SHA1,
-        <span class="number">6</span>,
-        <span class="number">1</span>,
-        <span class="number">30</span>,
-        totp_rs::Secret::Encoded(secret).to_bytes().unwrap(),
-    );
+    </span><span class="kw">let </span>totp = totp_rs::TOTP::new_unchecked(totp_rs::Algorithm::SHA1, <span class="number">6</span>, <span class="number">1</span>, <span class="number">30</span>, secret_bytes);
     <span class="kw">let </span>token = totp.generate_current()<span class="question-mark">?</span>;
 
     <span class="comment">// return
@@ -224,7 +224,8 @@
 
 <span class="doccomment">/// Convert a Google Authenticator migration QR code string to a list of accounts
 </span><span class="kw">fn </span>get_data_from_migration(uri_string: <span class="kw-2">&amp;</span>str) -&gt; <span class="prelude-ty">Result</span>&lt;Vec&lt;Account&gt;, LibraryError&gt; {
-    <span class="kw">let </span>encoded_data = extract_data_from_uri(uri_string)<span class="question-mark">?</span>;
+    <span class="comment">// otpauth-migration://offline?data=CioKFbdJDe%2FfCgnqX45r0bqfTI7VtZqa%2FBILdGVzdGVyOnRlc3QgASgBMAIQARgBIAAo0tfy2Qc%3D
+    </span><span class="kw">let </span>encoded_data = extract_data_from_uri(uri_string)<span class="question-mark">?</span>;
 
     <span class="kw">use </span>base64::Engine;
     <span class="kw">let </span>decoded_data = base64::engine::general_purpose::STANDARD.decode(encoded_data)<span class="question-mark">?</span>;
@@ -245,7 +246,8 @@
     <span class="kw">return </span><span class="prelude-val">Ok</span>(payloads);
 }
 
-<span class="kw">fn </span>extract_data_from_uri(raw: <span class="kw-2">&amp;</span>str) -&gt; <span class="prelude-ty">Result</span>&lt;String, LibraryError&gt; {
+<span class="doccomment">/// extract data from uri
+</span><span class="kw">fn </span>extract_data_from_uri(raw: <span class="kw-2">&amp;</span>str) -&gt; <span class="prelude-ty">Result</span>&lt;String, LibraryError&gt; {
     <span class="kw">let </span><span class="kw-2">mut </span>split = raw.split(<span class="string">&quot;data=&quot;</span>);
     split.next();
 

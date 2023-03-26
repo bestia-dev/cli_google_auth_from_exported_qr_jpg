@@ -1,7 +1,7 @@
 [package]
 name = "cli_google_auth_from_exported_qr_jpg"
-version = "1.0.63"
-description = "CLI generates 2FA OTP codes from exported qr jpg from google authenticator"
+version = "1.0.68"
+description = "CLI generates 2FA OTP codes from exported QR jpg images from google authenticator"
 authors = ["bestia.dev"]
 homepage = "https://bestia.dev"
 edition = "2021"

@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"constant":[["GREEN",""],["RED",""],["RESET",""],["YELLOW",""]],"enum":[["LibraryError","all possible library errors for `thiserror`"]],"fn":[["generate_otp_token_from_qr_text","get qr text from jpg"],["get_qr_text_from_jpg","get qr text from jpg"]],"mod":[["migration_mod",""]]};
+window.SIDEBAR_ITEMS = {"constant":[["GREEN",""],["RED",""],["RESET",""],["YELLOW",""]],"enum":[["LibraryError",""]],"fn":[["generate_otp_token_from_qr_text","generate otp token from qr text"],["get_qr_text_from_jpg","get qr text from jpg"]],"mod":[["migration_mod",""]]};

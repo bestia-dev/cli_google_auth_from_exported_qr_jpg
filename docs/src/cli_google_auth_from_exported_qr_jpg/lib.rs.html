@@ -182,24 +182,29 @@
 <a href="#182" id="182">182</a>
 <a href="#183" id="183">183</a>
 <a href="#184" id="184">184</a>
+<a href="#185" id="185">185</a>
+<a href="#186" id="186">186</a>
+<a href="#187" id="187">187</a>
+<a href="#188" id="188">188</a>
 </pre><pre class="rust"><code><span class="comment">// cli_google_auth_from_exported_qr_jpg/src/lib.rs
 
 // region: auto_md_to_doc_comments include README.md A //!
 </span><span class="doccomment">//! # cli_google_auth_from_exported_qr_jpg
 //!
-//! **CLI generates 2FA OTP codes from exported qr jpg from google authenticator**  
-//! ***version: 1.0.63 date: 2023-03-25 author: [bestia.dev](https://bestia.dev) repository: [Github](https://github.com/bestia-dev/cli_google_auth_from_exported_qr_jpg)***  
+//! **CLI generates 2FA OTP codes from exported QR jpg images from google authenticator**  
+//! ***version: 1.0.68 date: 2023-03-26 author: [bestia.dev](https://bestia.dev) repository: [Github](https://github.com/bestia-dev/cli_google_auth_from_exported_qr_jpg)***  
 //!
-//! [![Lines in Rust code](https://img.shields.io/badge/Lines_in_Rust-315-green.svg)]()
-//! [![Lines in Doc comments](https://img.shields.io/badge/Lines_in_Doc_comments-26-blue.svg)]()
-//! [![Lines in Comments](https://img.shields.io/badge/Lines_in_comments-50-purple.svg)]()
-//! [![Lines in examples](https://img.shields.io/badge/Lines_in_examples-0-yellow.svg)]()
-//! [![Lines in tests](https://img.shields.io/badge/Lines_in_tests-0-orange.svg)]()
+//! [![Lines in Rust code](https://img.shields.io/badge/Lines_in_Rust-311-green.svg)](https://github.com/bestia-dev/cli_google_auth_from_exported_qr_jpg/)
+//! [![Lines in Doc comments](https://img.shields.io/badge/Lines_in_Doc_comments-149-blue.svg)](https://github.com/bestia-dev/cli_google_auth_from_exported_qr_jpg/)
+//! [![Lines in Comments](https://img.shields.io/badge/Lines_in_comments-58-purple.svg)](https://github.com/bestia-dev/cli_google_auth_from_exported_qr_jpg/)
+//! [![Lines in examples](https://img.shields.io/badge/Lines_in_examples-0-yellow.svg)](https://github.com/bestia-dev/cli_google_auth_from_exported_qr_jpg/)
+//! [![Lines in tests](https://img.shields.io/badge/Lines_in_tests-0-orange.svg)](https://github.com/bestia-dev/cli_google_auth_from_exported_qr_jpg/)
 //!
 //! [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/bestia-dev/cli_google_auth_from_exported_qr_jpg/blob/main/LICENSE) [![Rust](https://github.com/bestia-dev/cli_google_auth_from_exported_qr_jpg/workflows/RustAction/badge.svg)](https://github.com/bestia-dev/cli_google_auth_from_exported_qr_jpg/)
 //!
 //! Hashtags: #rust #rustlang #tutorial  
 //! My projects on Github are more like a tutorial than a finished product: [bestia-dev tutorials](https://github.com/bestia-dev/tutorials_rust_wasm).
+//! Generated documentation: &lt;https://bestia-dev.github.io/cli_google_auth_from_exported_qr_jpg/&gt;  
 //!
 //! ## Motivation
 //!
@@ -324,12 +329,15 @@
 
 <span class="comment">// The `main.rs` uses the `anyhow` error library.
 // The `lib.rs` uses the `thiserror` library.
-</span><span class="kw">use </span>thiserror::Error;
 
-<span class="doccomment">/// all possible library errors for `thiserror`
-</span><span class="attr">#[derive(Error, Debug)]
+</span><span class="doccomment">/// all possible library errors for `thiserror`
+</span><span class="kw">use </span>thiserror::Error;
+<span class="attr">#[derive(Error, Debug)]
 </span><span class="kw">pub enum </span>LibraryError {
-    <span class="attr">#[error(transparent)]
+    <span class="comment">// TODO: 2023-03-26 wrote Issue to totp_rs to add traits Error and Display to SecretParseError
+    //#[error(transparent)]
+    //SecretParseError(#[from] totp_rs::SecretParseError),
+    </span><span class="attr">#[error(transparent)]
     </span>ImageError(<span class="attr">#[from] </span>image::ImageError),
     <span class="attr">#[error(transparent)]
     </span>AnyhowError(<span class="attr">#[from] </span>anyhow::Error),

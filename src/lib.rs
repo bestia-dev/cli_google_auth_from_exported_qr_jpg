@@ -3,19 +3,20 @@
 // region: auto_md_to_doc_comments include README.md A //!
 //! # cli_google_auth_from_exported_qr_jpg
 //!
-//! **CLI generates 2FA OTP codes from exported qr jpg from google authenticator**  
-//! ***version: 1.0.63 date: 2023-03-25 author: [bestia.dev](https://bestia.dev) repository: [Github](https://github.com/bestia-dev/cli_google_auth_from_exported_qr_jpg)***  
+//! **CLI generates 2FA OTP codes from exported QR jpg images from google authenticator**  
+//! ***version: 1.0.68 date: 2023-03-26 author: [bestia.dev](https://bestia.dev) repository: [Github](https://github.com/bestia-dev/cli_google_auth_from_exported_qr_jpg)***  
 //!
-//! [![Lines in Rust code](https://img.shields.io/badge/Lines_in_Rust-315-green.svg)]()
-//! [![Lines in Doc comments](https://img.shields.io/badge/Lines_in_Doc_comments-26-blue.svg)]()
-//! [![Lines in Comments](https://img.shields.io/badge/Lines_in_comments-50-purple.svg)]()
-//! [![Lines in examples](https://img.shields.io/badge/Lines_in_examples-0-yellow.svg)]()
-//! [![Lines in tests](https://img.shields.io/badge/Lines_in_tests-0-orange.svg)]()
+//! [![Lines in Rust code](https://img.shields.io/badge/Lines_in_Rust-311-green.svg)](https://github.com/bestia-dev/cli_google_auth_from_exported_qr_jpg/)
+//! [![Lines in Doc comments](https://img.shields.io/badge/Lines_in_Doc_comments-149-blue.svg)](https://github.com/bestia-dev/cli_google_auth_from_exported_qr_jpg/)
+//! [![Lines in Comments](https://img.shields.io/badge/Lines_in_comments-58-purple.svg)](https://github.com/bestia-dev/cli_google_auth_from_exported_qr_jpg/)
+//! [![Lines in examples](https://img.shields.io/badge/Lines_in_examples-0-yellow.svg)](https://github.com/bestia-dev/cli_google_auth_from_exported_qr_jpg/)
+//! [![Lines in tests](https://img.shields.io/badge/Lines_in_tests-0-orange.svg)](https://github.com/bestia-dev/cli_google_auth_from_exported_qr_jpg/)
 //!
 //! [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/bestia-dev/cli_google_auth_from_exported_qr_jpg/blob/main/LICENSE) [![Rust](https://github.com/bestia-dev/cli_google_auth_from_exported_qr_jpg/workflows/RustAction/badge.svg)](https://github.com/bestia-dev/cli_google_auth_from_exported_qr_jpg/)
 //!
 //! Hashtags: #rust #rustlang #tutorial  
 //! My projects on Github are more like a tutorial than a finished product: [bestia-dev tutorials](https://github.com/bestia-dev/tutorials_rust_wasm).
+//! Generated documentation: <https://bestia-dev.github.io/cli_google_auth_from_exported_qr_jpg/>  
 //!
 //! ## Motivation
 //!
@@ -140,11 +141,14 @@ pub use migration_mod::get_qr_text_from_jpg;
 
 // The `main.rs` uses the `anyhow` error library.
 // The `lib.rs` uses the `thiserror` library.
-use thiserror::Error;
 
 /// all possible library errors for `thiserror`
+use thiserror::Error;
 #[derive(Error, Debug)]
 pub enum LibraryError {
+    // TODO: 2023-03-26 wrote Issue to totp_rs to add traits Error and Display to SecretParseError
+    //#[error(transparent)]
+    //SecretParseError(#[from] totp_rs::SecretParseError),
     #[error(transparent)]
     ImageError(#[from] image::ImageError),
     #[error(transparent)]

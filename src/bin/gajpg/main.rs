@@ -1,4 +1,7 @@
-//! cli_google_auth_from_exported_qr_jpg/src/bin/gajpg/main.rs
+// cli_google_auth_from_exported_qr_jpg/src/bin/gajpg/main.rs
+
+//! Command line executable binary to run from bash terminal
+//! It uses the library cli_google_auth_from_exported_qr_jpg.
 
 // This `main.rs` is the code for the CLI application.
 // The build of this project will create the CLI application.
