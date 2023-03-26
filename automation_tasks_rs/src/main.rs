@@ -237,9 +237,6 @@ fn task_publish_to_crates_io() {
         r#"{YELLOW}
     After `cargo auto publish_to_crates_io`, check in browser{RESET}{GREEN}
 https://crates.io/crates/{package_name}{RESET}{YELLOW}
-    Install the crate with{RESET}{GREEN}
-cargo install {package_name}{RESET}{YELLOW}
-    and check how it works.
     Add the dependency {RESET}{GREEN}
 {package_name} = "{package_version}"{RESET}{YELLOW}
     to your Rust project and check how it works.{RESET}{GREEN}
