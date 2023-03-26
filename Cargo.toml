@@ -18,6 +18,9 @@ include = [
     "README.md",
     "src/*",
 ]
+exclude = [
+    "src/bin/*",
+]
 
 [dependencies]
 log = "0.4"
