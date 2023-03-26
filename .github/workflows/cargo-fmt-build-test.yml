@@ -1,4 +1,4 @@
-name: cargo-build
+name: cargo-fmt-build-test
 
 on:
   push:
@@ -15,8 +15,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Fmt
       run: cargo fmt -- --check
     - name: Build
       run: cargo build
+    - name: test
+      run: cargo test
