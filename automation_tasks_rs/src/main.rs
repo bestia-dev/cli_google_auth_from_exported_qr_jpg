@@ -124,11 +124,11 @@ fn task_build() {
     println!(
         r#"
     {YELLOW}After `cargo auto build`, run the compiled binary, examples and/or tests{RESET}
-{GREEN}./target/debug/gajpg image1.jpg{RESET}
+{GREEN}./target/debug/{package_name} image1.jpg{RESET}
     {YELLOW}if ok, then,{RESET}
 {GREEN}cargo auto release{RESET}
     {YELLOW}{RESET}"#,
-//package_name = cargo_toml.package_name(),
+package_name = "gajpg",
     );
     print_examples_cmd();
 }
@@ -143,17 +143,17 @@ fn task_release() {
     run_shell_command("cargo fmt");
     run_shell_command("cargo build --release");
     run_shell_command(&format!(
-        "strip target/release/gajpg",
-        //package_name = cargo_toml.package_name()
+        "strip target/release/{package_name}",
+        package_name = "gajpg"
     )); 
     println!(
         r#"
     {YELLOW}After `cargo auto release`, run the compiled binary, examples and/or tests{RESET}
-{GREEN}./target/release/gajpg image1.jpg{RESET}
+{GREEN}./target/release/{package_name} image1.jpg{RESET}
     {YELLOW}if ok, then,{RESET}
 {GREEN}cargo auto doc{RESET}
     {YELLOW}{RESET}"#,
-//package_name = cargo_toml.package_name(),
+package_name = "gajpg",
     );
     print_examples_cmd();
 }
@@ -231,6 +231,7 @@ fn task_github_new_release() {
     rt.block_on(async move {
         let owner = cargo_auto_github_lib::github_owner();
         let repo_name = cargo_toml.package_name();
+        let exe_file_name = "gajpg";
         let tag_name_version = format!("v{}", cargo_toml.package_version());
         let release_name = format!("Release v{}", cargo_toml.package_version());
         let branch = "main";
@@ -243,11 +244,11 @@ r#"## Changed
 "#);
 
         let release_id =  auto_github_create_new_release(&owner, &repo_name, &tag_name_version, &release_name, branch, body_md_text).await;
-        println!("    {YELLOW}New release created, now uploading release asset. This can take some time if the files are big. Wait...{RESET}");
+        println!("    {YELLOW}New release {release_id} created, now uploading release asset. This can take some time if the files are big. Wait...{RESET}");
 
         // compress files tar.gz
-        let tar_name = format!("{repo_name}-{tag_name_version}-x86_64-unknown-linux-gnu.tar.gz");
-        run_shell_command(&format!("tar -zcvf {tar_name} target/release/{repo_name}"));
+        let tar_name = format!("{exe_file_name}-{tag_name_version}-x86_64-unknown-linux-gnu.tar.gz");
+        run_shell_command(&format!("tar -zcvf {tar_name} target/release/{exe_file_name}"));
         
         // upload asset     
         auto_github_upload_asset_to_release(&owner, &repo_name, &release_id, &tar_name).await;
