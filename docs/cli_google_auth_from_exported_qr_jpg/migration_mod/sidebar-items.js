@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"fn":[["extract_data_from_uri","extract data from uri"],["generate_otp_token_from_qr_text","generate otp token from qr text"],["get_data_from_migration","Convert a Google Authenticator migration QR code string to a list of accounts"],["get_qr_text_from_jpg","get qr text from jpg"]],"mod":[["gauth_migration_proto_mod",""]],"struct":[["Account",""]]};
+window.SIDEBAR_ITEMS = {"fn":["extract_data_from_uri","generate_otp_token_from_qr_text","get_data_from_migration","get_qr_text_from_jpg"],"mod":["gauth_migration_proto_mod"],"struct":["Account"]};

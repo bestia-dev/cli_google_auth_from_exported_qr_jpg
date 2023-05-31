@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":[["Algorithm",""],["DigitCount",""],["OtpType",""]],"struct":[["OtpParameters",""]]};
+window.SIDEBAR_ITEMS = {"constant":["STRUCT_NAME"],"enum":["Algorithm","DigitCount","OtpType"],"fn":["ScalarWrapper"],"struct":["OtpParameters","ScalarWrapper"]};
