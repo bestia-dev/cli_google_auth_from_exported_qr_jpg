@@ -7,6 +7,9 @@
 **CLI generates 2FA OTP codes from exported QR jpg images from google authenticator**  
 ***version: 1.0.73 date: 2023-05-31 author: [bestia.dev](https://bestia.dev) repository: [Github](https://github.com/bestia-dev/cli_google_auth_from_exported_qr_jpg)***  
 
+![status](https://img.shields.io/badge/active_dev-green) 
+![status](https://img.shields.io/badge/in_use-green) 
+
 [//]: # (auto_cargo_toml_to_md end)
 
 [//]: # (auto_lines_of_code start)
