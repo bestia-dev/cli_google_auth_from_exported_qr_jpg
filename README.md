@@ -9,8 +9,8 @@
 
 [//]: # (auto_cargo_toml_to_md end)
 
-![status](https://img.shields.io/badge/maintained-green) 
-![status](https://img.shields.io/badge/ready_for_use-green) 
+ ![maintained](https://img.shields.io/badge/maintained-green)
+ ![ready_for_use](https://img.shields.io/badge/ready_for_use-green)
 
 [//]: # (auto_lines_of_code start)
 [![Lines in Rust code](https://img.shields.io/badge/Lines_in_Rust-311-green.svg)](https://github.com/bestia-dev/cli_google_auth_from_exported_qr_jpg/)
@@ -21,7 +21,13 @@
 
 [//]: # (auto_lines_of_code end)
 
-[![crates.io](https://img.shields.io/crates/v/cli_google_auth_from_exported_qr_jpg.svg)](https://crates.io/crates/cli_google_auth_from_exported_qr_jpg) [![Documentation](https://docs.rs/cli_google_auth_from_exported_qr_jpg/badge.svg)](https://docs.rs/cli_google_auth_from_exported_qr_jpg/) [![crev reviews](https://web.crev.dev/rust-reviews/badge/crev_count/cli_google_auth_from_exported_qr_jpg.svg)](https://web.crev.dev/rust-reviews/crate/cli_google_auth_from_exported_qr_jpg/) [![Lib.rs](https://img.shields.io/badge/Lib.rs-rust-orange.svg)](https://lib.rs/crates/cli_google_auth_from_exported_qr_jpg/) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/bestia-dev/cli_google_auth_from_exported_qr_jpg/blob/master/LICENSE) [![Rust](https://github.com/bestia-dev/cli_google_auth_from_exported_qr_jpg/actions/workflows/fmt-build-test.yml/badge.svg)](https://github.com/bestia-dev/cli_google_auth_from_exported_qr_jpg/actions/)  
+ [![crates.io](https://img.shields.io/crates/v/cli_google_auth_from_exported_qr_jpg.svg)](https://crates.io/crates/cli_google_auth_from_exported_qr_jpg)
+ [![Documentation](https://docs.rs/cli_google_auth_from_exported_qr_jpg/badge.svg)](https://docs.rs/cli_google_auth_from_exported_qr_jpg/)
+ [![crev reviews](https://web.crev.dev/rust-reviews/badge/crev_count/cli_google_auth_from_exported_qr_jpg.svg)](https://web.crev.dev/rust-reviews/crate/cli_google_auth_from_exported_qr_jpg/)
+ [![Lib.rs](https://img.shields.io/badge/Lib.rs-rust-orange.svg)](https://lib.rs/crates/cli_google_auth_from_exported_qr_jpg/)
+ [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/bestia-dev/cli_google_auth_from_exported_qr_jpg/blob/master/LICENSE)
+ [![Rust](https://github.com/bestia-dev/cli_google_auth_from_exported_qr_jpg/actions/workflows/fmt-build-test.yml/badge.svg)](https://github.com/bestia-dev/cli_google_auth_from_exported_qr_jpg/actions/)
+ ![cli_google_auth_from_exported_qr_jpg](https://bestia.dev/webpage_hit_counter/get_svg_image/1517826705.svg)
 
 Hashtags: #rust #rustlang #tutorial  
 My projects on Github are more like a tutorial than a finished product: [bestia-dev tutorials](https://github.com/bestia-dev/tutorials_rust_wasm).  
