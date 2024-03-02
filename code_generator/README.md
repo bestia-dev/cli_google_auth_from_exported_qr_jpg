@@ -1,3 +1,5 @@
+[//]: # (auto_md_to_doc_comments segment start A)
+
 # code generator for protobuf
 
 Protocol Buffers are a language-neutral, platform-neutral extensible mechanism for serializing structured data created by google. They claim it is performant and efficient, more than json and xml. Instead of a generic runtime coder/decoder, they prepare optimized source code for every specific proto message. So it is super performant after compiling. They created a code generator for 20 languages, but not for Rust (yet). There is the third party `prost` crate that looks it generates rust code from the `.proto` schema definition.  
@@ -40,3 +42,5 @@ So I can drink a free beer for your health :-)
 [//github.com/bestia-dev](https://github.com/bestia-dev)  
 [//bestiadev.substack.com](https://bestiadev.substack.com)  
 [//youtube.com/@bestia-dev-tutorials](https://youtube.com/@bestia-dev-tutorials)  
+
+[//]: # (auto_md_to_doc_comments segment end A)
