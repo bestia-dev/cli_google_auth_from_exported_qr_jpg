@@ -41,7 +41,7 @@ fn print_help() {
 gajpg --help
 gajpg image1.jpg
   
-    © 2023 bestia.dev  MIT License github.com/bestia-dev/cargo-auto
+    © 2023 bestia.dev  MIT License github.com/automation-tasks-rs/cargo-auto
 "#
     );
 }
